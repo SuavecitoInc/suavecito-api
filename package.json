@@ -1,0 +1,53 @@
+{
+  "name": "suavecito-api",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "j-Riv <jriv@suavecito.com>",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "rm -rf ./dist && tsc --project . && copyfiles *.json ./dist",
+    "start": "npm run build && node ./dist/server.js",
+    "build:prod": "tsc --project . && copyfiles *.json ./dist && npm run sentry:sourcemaps",
+    "start:prod": "node ./dist/server.js",
+    "generate": "graphql-codegen --config .graphqlrc.ts",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest --detectOpenHandles --forceExit",
+    "sentry": "npx @sentry/wizard@latest -i sourcemaps",
+    "sentry:sourcemaps": "sentry-cli sourcemaps inject --org suavecito-inc --project simple-connector-queue ./dist && sentry-cli sourcemaps upload --org suavecito-inc --project simple-connector-queue ./dist"
+  },
+  "dependencies": {
+    "@sentry/cli": "^2.38.0",
+    "@sentry/node": "^8.35.0",
+    "@sentry/profiling-node": "^8.35.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "4.21.1",
+    "helmet": "^8.0.0",
+    "node-fetch": "^3.3.2",
+    "oauth-1.0a": "^2.2.6"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.13.0",
+    "@graphql-codegen/cli": "^5.0.3",
+    "@shopify/api-codegen-preset": "^1.1.2",
+    "@shopify/graphql-codegen": "^0.1.0",
+    "@types/cors": "^2.8.17",
+    "@types/express": "5.0.0",
+    "@types/node": "22.8.3",
+    "@typescript-eslint/eslint-plugin": "^8.12.2",
+    "@typescript-eslint/parser": "^8.12.2",
+    "copyfiles": "^2.4.1",
+    "eslint": "^9.13.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.11.0",
+    "prettier": "^3.3.3",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.2",
+    "typescript": "5.6.3"
+  }
+}
