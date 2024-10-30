@@ -1,0 +1,158 @@
+{
+  "vendor": "Test Vendor",
+  "title": "Test Product",
+  "productType": "TEST",
+  "tags": "",
+  "descriptionHtml": "<p>Some Description</p>",
+  "option": "Size",
+  "hasVariants": true,
+  "variants": [
+    {
+      "barcode": "",
+      "optionValues": [
+        {
+          "optionName": "Size",
+          "name": "S"
+        }
+      ],
+      "price": "24.99",
+      "inventoryItem": {
+        "sku": "S_TEST_NS",
+        "measurement": {
+          "weight": {
+            "value": 0.5,
+            "unit": "POUNDS"
+          }
+        },
+        "tracked": true
+      },
+      "inventoryPolicy": "DENY"
+    },
+    {
+      "barcode": "",
+      "optionValues": [
+        {
+          "optionName": "Size",
+          "name": "M"
+        }
+      ],
+      "price": "24.99",
+      "inventoryItem": {
+        "sku": "S_TEST_NM",
+        "measurement": {
+          "weight": {
+            "value": 0.5,
+            "unit": "POUNDS"
+          }
+        },
+        "tracked": true
+      },
+      "inventoryPolicy": "DENY"
+    },
+    {
+      "barcode": "",
+      "optionValues": [
+        {
+          "optionName": "Size",
+          "name": "L"
+        }
+      ],
+      "price": "24.99",
+      "inventoryItem": {
+        "sku": "S_TEST_NL",
+        "measurement": {
+          "weight": {
+            "value": 0.5,
+            "unit": "POUNDS"
+          }
+        },
+        "tracked": true
+      },
+      "inventoryPolicy": "DENY"
+    },
+    {
+      "barcode": "",
+      "optionValues": [
+        {
+          "optionName": "Size",
+          "name": "XL"
+        }
+      ],
+      "price": "24.99",
+      "inventoryItem": {
+        "sku": "S_TEST_NXL",
+        "measurement": {
+          "weight": {
+            "value": 0.5,
+            "unit": "POUNDS"
+          }
+        },
+        "tracked": true
+      },
+      "inventoryPolicy": "DENY"
+    },
+    {
+      "barcode": "",
+      "optionValues": [
+        {
+          "optionName": "Size",
+          "name": "2XL"
+        }
+      ],
+      "price": "24.99",
+      "inventoryItem": {
+        "sku": "S_TEST_N2XL",
+        "measurement": {
+          "weight": {
+            "value": 0.5,
+            "unit": "POUNDS"
+          }
+        },
+        "tracked": true
+      },
+      "inventoryPolicy": "DENY"
+    },
+    {
+      "barcode": "",
+      "optionValues": [
+        {
+          "optionName": "Size",
+          "name": "3XL"
+        }
+      ],
+      "price": "24.99",
+      "inventoryItem": {
+        "sku": "S_TEST_N3XL",
+        "measurement": {
+          "weight": {
+            "value": 0.5,
+            "unit": "POUNDS"
+          }
+        },
+        "tracked": true
+      },
+      "inventoryPolicy": "DENY"
+    },
+    {
+      "barcode": "",
+      "optionValues": [
+        {
+          "optionName": "Size",
+          "name": "4XL"
+        }
+      ],
+      "price": "24.99",
+      "inventoryItem": {
+        "sku": "S_TEST_N4XL",
+        "measurement": {
+          "weight": {
+            "value": 0.5,
+            "unit": "POUNDS"
+          }
+        },
+        "tracked": true
+      },
+      "inventoryPolicy": "DENY"
+    }
+  ]
+}

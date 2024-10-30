@@ -1,6 +1,6 @@
-import type { Request, Response } from "express";
-import app from "./app.js";
-import setupRoutes from "./routes/index.js";
+import type { Request, Response } from 'express';
+import app from './app.js';
+import setupRoutes from './routes/index.js';
 
 const PORT = process.env.PORT || 3000;
 
@@ -11,5 +11,5 @@ app.use((req: Request, res: Response) => {
 });
 
 app.listen(PORT, () =>
-  console.log(`🚀 Server ready at: http://localhost:${PORT}`),
+  console.log(`🚀 Server ready at: http://localhost:${PORT}`)
 );
