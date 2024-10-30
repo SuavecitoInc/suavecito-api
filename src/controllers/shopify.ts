@@ -5,9 +5,13 @@ export const postItemToShopify = async (
   req: Request,
   res: Response
 ): Promise<void> => {
-  const store = req.params.store;
+  const { shopifyStore, product } = req.body;
+
+  console.log('shopifyStore: ' + shopifyStore);
+  console.log('product: ' + product);
+
   try {
-    const response = await shopifyProduct(store, req.body);
+    const response = await shopifyProduct(shopifyStore, product);
     res.status(200).json({
       product: {
         legacyResourceId: response,

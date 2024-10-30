@@ -27,9 +27,24 @@ type NetSuiteItem = {
   vendor: string;
   productType: string;
   tags: string[];
-  hasVariants: 'true' | 'false'; // TDOD: change to boolean in NS
   option: string;
-  variants: string;
+  variants: {
+    optionValues: {
+      optionName: string;
+      name: string;
+    }[];
+    price: string;
+    inventoryItem: {
+      sku: string;
+      measurement: {
+        weight: {
+          value: number;
+          unit: string;
+        };
+      };
+    };
+    barcode: string;
+  }[];
 };
 
 type ShopifyProductData = {

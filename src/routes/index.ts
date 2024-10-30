@@ -21,7 +21,7 @@ const routes = (app: Express) => {
 
   // shopify
   // TODO: verifyRequest middleware
-  apiV1Router.post('/:store/product', postItemToShopify);
+  apiV1Router.post('/product/create', postItemToShopify);
 
   app.use('/v1', apiV1Router);
 };
