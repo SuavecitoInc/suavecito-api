@@ -8,14 +8,33 @@ Environmental Variables:
 
 ```bash
 # shopify
-SHOPIFY_API_VERSION=2024-07
-SECRET_KEY=
-# retail
-SHOPIFY_RETAIL_STORE=suavecito
-SHOPIFY_RETAIL_API_KEY=
-# wholesale
-SHOPIFY_WHOLESALE_STORE=suavecito-wholesale
-SHOPIFY_WHOLESALE_API_KEY=
+SHOPIFY_API_VERSION=2024-07 # shopify admin api version
+SECRET_KEY= # random string used for hash / digest
+SHOPIFY_STORE_1= # the shopify store name without the .myshopify.com
+SHOPIFY_STORE_1__API_KEY= # shopify admin api token
+...
+...
+```
+
+`src/config/stores.ts`
+
+```typescript
+const stores = {
+  store_1: {
+    store: process.env.SHOPIFY_STORE_1,
+    apiKey: process.env.SHOPIFY_STORE_1_API_KEY,
+  },
+  store_2: {
+    store: process.env.SHOPIFY_STORE_2,
+    apiKey: process.env.SHOPIFY_STORE_2_API_KEY,
+  },
+  store_3: {
+    store: process.env.SHOPIFY_STORE_3,
+    apiKey: process.env.SHOPIFY_STORE_3_API_KEY,
+  },
+};
+
+export default stores;
 ```
 
 ## Endpoints:

@@ -1,6 +1,4 @@
-import dotenv from 'dotenv';
-
-dotenv.config();
+import stores from './stores';
 
 type ShopifyConfig = {
   apiVersion: string;
@@ -14,16 +12,9 @@ type ShopifyConfig = {
 
 const shopifyConfig: ShopifyConfig = {
   apiVersion: process.env.SHOPIFY_API_VERSION,
-  stores: {
-    retail: {
-      store: process.env.SHOPIFY_RETAIL_STORE,
-      apiKey: process.env.SHOPIFY_RETAIL_API_KEY,
-    },
-    wholesale: {
-      store: process.env.SHOPIFY_WHOLESALE_STORE,
-      apiKey: process.env.SHOPIFY_WHOLESALE_API_KEY,
-    },
-  },
+  stores,
 };
+
+export type ShopifyStore = keyof ShopifyConfig['stores'];
 
 export default shopifyConfig;
