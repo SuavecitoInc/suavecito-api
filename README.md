@@ -1,4 +1,4 @@
-# Suavecito API v2
+# Suavecito API
 
 > NetSuite to Shopify API
 
@@ -25,12 +25,14 @@ SHOPIFY_WHOLESALE_API_KEY=
     <tr>
       <th>Endpoint</th>
       <th>Method</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>/v1/:store/product</td>
       <td>POST</td>
+      <td>This endpoint creates a Shopify product from a NetSuite item record.</td>
     </tr>
   </tbody>
 </table>
