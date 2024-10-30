@@ -34,3 +34,5 @@ public/
 data/
 # Sentry Config File
 .sentryclirc
+
+src/config/stores.ts
