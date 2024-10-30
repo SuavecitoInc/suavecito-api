@@ -1,16 +1,17 @@
-import express from "express";
-import type { Express, Request, Response, NextFunction } from "express";
-import { verifyRequest } from "../middleware.js";
-import { helloFriend } from "../controllers/index.js";
-import { format } from "../lib/utils/index.js";
+import express from 'express';
+import type { Express, Request, Response, NextFunction } from 'express';
+import { verifyRequest } from '../middleware.js';
+import { helloFriend } from '../controllers/index.js';
+import { format } from '../lib/utils/index.js';
+import { postItemToShopify } from '../controllers/shopify.js';
 
 const routes = (app: Express) => {
-  app.get("/", helloFriend);
+  app.get('/', helloFriend);
 
-  app.get("/uptime", (req: Request, res: Response) => {
+  app.get('/uptime', (req: Request, res: Response) => {
     res.status(200).send({
       uptime: format(process.uptime()),
-      message: "Ok",
+      message: 'Ok',
       date: new Date(),
       ip: req.ip,
     });
@@ -18,9 +19,11 @@ const routes = (app: Express) => {
 
   const apiV1Router = express.Router();
 
-  apiV1Router.get("/", helloFriend);
+  // shopify
+  // TODO: verifyRequest middleware
+  apiV1Router.post('/:store/product', postItemToShopify);
 
-  app.use("/v1", apiV1Router);
+  app.use('/v1', apiV1Router);
 };
 
 export default routes;
