@@ -1,5 +1,6 @@
 import type { Request, Response } from 'express';
 import { shopifyProduct } from '../lib/helpers/shopify/product.js';
+import { createShopifyProductUrl } from '../lib/utils/shopify.js';
 
 export const postItemToShopify = async (
   req: Request,
@@ -14,6 +15,7 @@ export const postItemToShopify = async (
     const response = await shopifyProduct(shopifyStore, product);
     res.status(200).json({
       product: {
+        url: createShopifyProductUrl(shopifyStore, response),
         legacyResourceId: response,
       },
       error: null,

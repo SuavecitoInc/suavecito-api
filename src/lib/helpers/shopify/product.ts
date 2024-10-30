@@ -339,7 +339,10 @@ async function searchShopifyProductByHandle(store: string, handle: string) {
   }
 }
 
-export async function shopifyProduct(store: string, item: NetSuiteItem) {
+export async function shopifyProduct(
+  store: string,
+  item: NetSuiteItem
+): Promise<string> {
   console.log('++++++++++ SHOPIFY PRODUCT ++++++++++');
   console.log('NETSUITE ITEM', JSON.stringify(item, null, 2));
 
@@ -383,17 +386,8 @@ export async function shopifyProduct(store: string, item: NetSuiteItem) {
 
   console.log('SEARCH RESULT', JSON.stringify(searchResult, null, 2));
 
-  if (!searchResult) {
-    // doesn't exist lets create
-    const createdResponse = await createProduct(store, data);
-    console.log(
-      'CREATED PRODUCT ' +
-        createdResponse?.data?.productCreate?.product?.legacyResourceId
-    );
-
-    return createdResponse?.data?.productCreate?.product?.legacyResourceId;
-  } else {
-    // exists lets update
+  // product exists
+  if (searchResult) {
     const updatedResponse = await updateProduct(
       store,
       searchResult,
@@ -403,4 +397,13 @@ export async function shopifyProduct(store: string, item: NetSuiteItem) {
     console.log('UPDATED PRODUCT ' + searchResult.id);
     return updatedResponse?.data?.productUpdate?.product?.legacyResourceId;
   }
+
+  // doesn't exist lets create
+  const createdResponse = await createProduct(store, data);
+  console.log(
+    'CREATED PRODUCT ' +
+      createdResponse?.data?.productCreate?.product?.legacyResourceId
+  );
+
+  return createdResponse?.data?.productCreate?.product?.legacyResourceId;
 }

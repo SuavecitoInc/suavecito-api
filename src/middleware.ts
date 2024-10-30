@@ -6,7 +6,7 @@ dotenv.config();
 
 export function verifyRequest(req: Request, res: Response, next: NextFunction) {
   const key = process.env.SECRET_KEY;
-  const hmac = req.get('X-Suavecito-Hmac-Sha256');
+  const hmac = req.get('X-ShopifyProduct-Hmac-Sha256');
   const hash = crypto
     .createHmac('sha256', key)
     .update(req.rawBody, 'utf8') // removed hex

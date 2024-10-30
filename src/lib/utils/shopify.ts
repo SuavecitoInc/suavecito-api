@@ -84,3 +84,14 @@ export function createShopifyUserError(errors: { message: string }[]) {
   const errorMsg = errors[0].message;
   throw new Error(errorMsg);
 }
+
+export function createShopifyProductUrl(
+  shopifyStore: string,
+  productId: string
+) {
+  const shop = shopifyConfig.stores[shopifyStore].store;
+  if (!shop) {
+    throw new Error('Invalid Shopify store');
+  }
+  return `https://admin.shopify.com/store/${shop}/products/${productId}`;
+}
