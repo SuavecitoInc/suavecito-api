@@ -54,7 +54,7 @@ type ShopifyProductData = {
   descriptionHtml: string;
   vendor: string;
   productType: string;
-  productOptions: { name: string; values: string[] }[];
+  productOptions: { name: string; values: { name: string }[] }[];
   tags: string[];
   variants: {
     id?: string;
@@ -163,6 +163,8 @@ async function createProduct(store: string, data: ShopifyProductData) {
   if (!productResponse?.data?.productCreate?.product) {
     throw new Error('Product not created');
   }
+
+  console.log('PRODUCT RESPONSE', JSON.stringify(productResponse, null, 2));
 
   const variantsResponse = await createShopifyVariants(
     store,
@@ -346,7 +348,9 @@ export async function shopifyProduct(
   console.log('++++++++++ SHOPIFY PRODUCT ++++++++++');
   console.log('NETSUITE ITEM', JSON.stringify(item, null, 2));
 
-  const variants =
+  const optionName = item.variants[0].optionValues[0].optionName;
+
+  const variants: ShopifyProductData['variants'] =
     typeof item.variants === 'string'
       ? JSON.parse(item.variants)
       : item.variants;
@@ -358,8 +362,8 @@ export async function shopifyProduct(
     productType: item.productType,
     productOptions: [
       {
-        name: item.option,
-        values: variants.map((variant: any) => ({
+        name: optionName ? optionName : 'Title',
+        values: variants.map((variant) => ({
           name: variant.optionValues[0].name,
         })),
       },
