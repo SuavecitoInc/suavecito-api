@@ -23,4 +23,9 @@ export function verifyRequest(req: Request, res: Response, next: NextFunction) {
   }
 }
 
+export function noIndex(req: Request, res: Response, next: NextFunction) {
+  res.setHeader('X-Robots-Tag', 'noindex, nofollow');
+  next();
+}
+
 export default {};

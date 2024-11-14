@@ -3,6 +3,7 @@ import type { Response, Request } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import dotenv from 'dotenv';
+import { noIndex } from './middleware.js';
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(helmet());
 app.use(cors());
+app.use(noIndex);
 
 app.disable('x-powered-by');
 
