@@ -1,4 +1,4 @@
-import productByHandle from './productByHandle';
-import productById from './productById';
+import productByHandle from './productByHandle.js';
+import productById from './productById.js';
 
 export { productByHandle, productById };
