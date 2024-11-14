@@ -1,4 +1,4 @@
-import stores from './stores';
+import stores from './stores.js';
 
 type ShopifyConfig = {
   apiVersion: string;
